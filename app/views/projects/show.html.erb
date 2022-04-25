@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="container-fluid">
+  <div class="d-flex justify-content-center">
+    <div class="card bg-light mb-4 box-shadow">
+      <div class="card-body">
+      <%= image_tag("960x0.jpeg")%>
+      <h5 class="card-title">  <td><%= @project.title %></td></h5>
+      <p class="card-text"> <td><%= @project.description %></td>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+      <br>
+      <br>
+      <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info" %> 
+      <% end %>                      
+      <%= link_to 'Back', projects_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+
+
+
+
+

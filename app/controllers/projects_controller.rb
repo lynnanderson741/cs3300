@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects or /projects.json
   def index
     @projects = Project.all
+
+    @images = Dir.chdir(Rails.root.join('app/assets/images')) do
+      Dir.glob("*.jpg")
+    end
   end
 
   # GET /projects/1 or /projects/1.json
@@ -68,4 +72,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:title, :description)
     end
+
 end
